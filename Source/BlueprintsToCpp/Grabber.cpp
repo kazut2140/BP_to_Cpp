@@ -43,3 +43,8 @@ FVector UGrabber::GetMaxGrabLocation() const
 	// GetWorldLocation
 	return GetComponentLocation() + UKismetMathLibrary::GetForwardVector(GetComponentRotation()) * MaxGrabDistance;
 }
+
+FVector UGrabber::GetHoldLocation() const
+{
+	return GetComponentLocation() + GetComponentRotation().Vector() * HoldDistance;
+}

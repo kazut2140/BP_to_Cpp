@@ -23,6 +23,10 @@ protected:
 	// BPから呼び出すために必要なもの
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	FVector GetMaxGrabLocation() const;
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	FVector GetHoldLocation() const;
+
 public:	
 	// Called every frame
 	// コンポーネントはこの名前
@@ -31,4 +35,6 @@ public:
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float MaxGrabDistance = 100;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	float HoldDistance = 100;
 };
