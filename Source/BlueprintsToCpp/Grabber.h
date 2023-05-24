@@ -20,6 +20,9 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
+	// BPから呼び出すために必要なもの
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	FVector GetMaxGrabLocation() const;
 public:	
 	// Called every frame
 	// コンポーネントはこの名前
