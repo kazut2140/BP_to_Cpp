@@ -22,6 +22,7 @@ protected:
 
 public:	
 	// Called every frame
+	// コンポーネントはこの名前
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 		

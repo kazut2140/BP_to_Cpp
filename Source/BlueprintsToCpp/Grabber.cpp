@@ -10,7 +10,8 @@ UGrabber::UGrabber()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
-	// ...
+	// デバッグログの表示
+	UE_LOG(LogTemp, Warning, TEXT("Grabber Constructor"));
 }
 
 
@@ -19,7 +20,8 @@ void UGrabber::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
+	// デバッグログの表示
+	UE_LOG(LogTemp, Warning, TEXT("Grabber BeginPlay"));
 	
 }
 
@@ -27,8 +29,10 @@ void UGrabber::BeginPlay()
 // Called every frame
 void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
+	
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+	// デバッグログの表示
+	UE_LOG(LogTemp, Warning, TEXT("Grabber TickComponent"));
 }
 

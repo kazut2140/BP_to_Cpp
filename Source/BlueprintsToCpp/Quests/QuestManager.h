@@ -21,6 +21,7 @@ protected:
 
 public:	
 	// Called every frame
+	// アクタはこの名前
 	virtual void Tick(float DeltaTime) override;
 
 };
