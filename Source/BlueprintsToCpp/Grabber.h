@@ -30,6 +30,11 @@ protected:
 
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	UPhysicsHandleComponent* GetPhysicsComponent() const;
+	
+	// 定義はC++で実装はBP
+	UFUNCTION(BlueprintImplementableEvent)
+	void NotifyQuestActor(AActor* Actor);
+
 public:	
 	// Called every frame
 	// コンポーネントはこの名前
