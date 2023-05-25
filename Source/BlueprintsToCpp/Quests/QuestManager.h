@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "QuestInfo.h"
 #include "QuestManager.generated.h"
 
 UCLASS()
@@ -24,4 +25,7 @@ public:
 	// アクタはこの名前
 	virtual void Tick(float DeltaTime) override;
 
+protected:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<FQuestInfo> QuestList;
 };
