@@ -23,6 +23,9 @@ public:
 	UFUNCTION(BlueprintPure)
 	FQuestInfo GetQuest(FName Name) const;
 
+	UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
+	bool IsActiveQuest(FName Name) const;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

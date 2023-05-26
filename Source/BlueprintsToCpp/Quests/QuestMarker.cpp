@@ -16,3 +16,10 @@ AQuestMarker::AQuestMarker()
 	ParticleSystem->SetupAttachment(Root);
 }
 
+void AQuestMarker::RefreshVisibility()
+{
+	FQuestInfo Quest = GetQuestManager()->GetQuest(QuestName);
+	bool EqualProgress = (Quest.Progress == ShowAtProgress);
+	bool Visibility = GetQuestManager()->IsActiveQuest(Quest.QuestId) && EqualProgress;
+	ParticleSystem->SetVisibility(Visibility);
+}
