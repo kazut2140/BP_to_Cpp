@@ -21,4 +21,9 @@ protected:
 	USceneComponent* Root;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UParticleSystemComponent* ParticleSystem;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FName QuestName;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	int32 ShowAtProgress = 0;
 };
