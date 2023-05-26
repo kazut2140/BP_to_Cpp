@@ -20,13 +20,16 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void CompleteQuest(FName QuestId, bool CompleteWholeQuest);
 
+	UFUNCTION(BlueprintPure)
+	FQuestInfo GetQuest(FName Name) const;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 	// Pure‚ÍBlueprintCallable‚àŠÜ‚Ü‚ê‚é
 	UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
-	int32 GetQuestIndex(FName QuestId);
+	int32 GetQuestIndex(FName QuestId) const;
 
 public:	
 	// Called every frame
