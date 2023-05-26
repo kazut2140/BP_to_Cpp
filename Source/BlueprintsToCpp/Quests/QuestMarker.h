@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Particles/ParticleSystemComponent.h"
+#include "QuestManager.h"
 #include "QuestMarker.generated.h"
 
 UCLASS()
@@ -17,6 +18,9 @@ public:
 	AQuestMarker();
 
 protected:
+	UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
+	AQuestManager* GetQuestManager() const;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	USceneComponent* Root;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
