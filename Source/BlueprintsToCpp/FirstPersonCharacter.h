@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Grabber.h"
+#include "Camera/CameraComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "FirstPersonCharacter.generated.h"
 
 UCLASS()
@@ -17,15 +19,15 @@ public:
 	AFirstPersonCharacter();
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+	//// Called when the game starts or when spawned
+	//virtual void BeginPlay() override;
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintPure)
-	UGrabber* GetGrabber() const;
+	/*UFUNCTION(BlueprintImplementableEvent, BlueprintPure)
+	UGrabber* GetGrabber() const;*/
 
 public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	//// Called every frame
+	//virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -35,4 +37,10 @@ private:
 	void Right(float AxisValue);
 	void Grab();
 	void Release();
+
+protected:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+		UGrabber* Grabber;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UCameraComponent* Camera;
 };

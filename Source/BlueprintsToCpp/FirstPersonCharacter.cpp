@@ -9,23 +9,27 @@
 AFirstPersonCharacter::AFirstPersonCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
+	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
+	Camera->SetupAttachment(GetCapsuleComponent());
+	Grabber = CreateDefaultSubobject<UGrabber>(TEXT("Grabber"));
+	Grabber->SetupAttachment(Camera);
 
 }
 
-// Called when the game starts or when spawned
-void AFirstPersonCharacter::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
-
-// Called every frame
-void AFirstPersonCharacter::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-}
+//// Called when the game starts or when spawned
+//void AFirstPersonCharacter::BeginPlay()
+//{
+//	Super::BeginPlay();
+//	
+//}
+//
+//// Called every frame
+//void AFirstPersonCharacter::Tick(float DeltaTime)
+//{
+//	Super::Tick(DeltaTime);
+//
+//}
 
 // Called to bind functionality to input
 void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -52,10 +56,12 @@ void AFirstPersonCharacter::Right(float AxisValue)
 
 void AFirstPersonCharacter::Grab()
 {
-	GetGrabber()->Grab();
+	//GetGrabber()->Grab();
+	Grabber->Grab();
 }
 
 void AFirstPersonCharacter::Release()
 {
-	GetGrabber()->Release();
+	//GetGrabber()->Release();
+	Grabber->Release();
 }
