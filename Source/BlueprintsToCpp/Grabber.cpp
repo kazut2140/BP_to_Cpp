@@ -48,12 +48,12 @@ void UGrabber::BeginPlay()
 	
 }
 
-
 // Called every frame
 void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	GetPhysicsComponent()->SetTargetLocationAndRotation(GetHoldLocation(), GetComponentRotation());
 
 	// デバッグログの表示
 	UE_LOG(LogTemp, Warning, TEXT("Grabber TickComponent"));

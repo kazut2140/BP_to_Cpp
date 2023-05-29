@@ -14,7 +14,7 @@ class BLUEPRINTSTOCPP_API UGrabber : public USceneComponent
 {
 	GENERATED_BODY()
 
-public:	
+public:
 	// Sets default values for this component's properties
 	UGrabber();
 
@@ -45,7 +45,7 @@ protected:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	bool TraceForPhysicsBodies(AActor*& HitActor, UPrimitiveComponent*& HitComponent);
 
-public:	
+public:
 	// Called every frame
 	// コンポーネントはこの名前
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;

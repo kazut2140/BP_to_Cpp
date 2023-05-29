@@ -22,8 +22,8 @@ protected:
 	//// Called when the game starts or when spawned
 	//virtual void BeginPlay() override;
 
-	/*UFUNCTION(BlueprintImplementableEvent, BlueprintPure)
-	UGrabber* GetGrabber() const;*/
+	//UFUNCTION(BlueprintImplementableEvent, BlueprintPure)
+	////UGrabber* GetGrabber() const;
 
 public:	
 	//// Called every frame
@@ -40,7 +40,7 @@ private:
 
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-		UGrabber* Grabber;
+	UGrabber* Grabber;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UCameraComponent* Camera;
 };
