@@ -42,7 +42,10 @@ protected:
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void NotifyQuestActor(AActor* Actor);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	/*UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	bool TraceForPhysicsBodies(AActor*& HitActor, UPrimitiveComponent*& HitComponent);*/
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
 	bool TraceForPhysicsBodies(AActor*& HitActor, UPrimitiveComponent*& HitComponent);
 
 public:
@@ -55,4 +58,6 @@ protected:
 	float MaxGrabDistance = 100;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float HoldDistance = 100;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	float GrabRadius = 50;
 };

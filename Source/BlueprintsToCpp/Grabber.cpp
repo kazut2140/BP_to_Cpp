@@ -3,6 +3,7 @@
 
 #include "Grabber.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "Kismet/KismetSystemLibrary.h"
 #include "GameFramework/Actor.h"
 
 // Sets default values for this component's properties
@@ -76,7 +77,34 @@ UPhysicsHandleComponent* UGrabber::GetPhysicsComponent() const
 	return GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
 }
 
-bool UGrabber::TraceForPhysicsBodies_Implementation(AActor*& HitActor, UPrimitiveComponent*& HitComponent)
+bool UGrabber::TraceForPhysicsBodies(AActor*& HitActor, UPrimitiveComponent*& HitComponent)
 {
-	return false;
+	TArray<TEnumAsByte<EObjectTypeQuery>> Types = { EObjectTypeQuery::ObjectTypeQuery4 };
+	TArray<AActor*> Ignores;
+
+	FHitResult HitResult;
+
+	bool IsHit =  UKismetSystemLibrary::SphereTraceSingleForObjects(
+		GetOwner(),
+		GetComponentLocation(),
+		GetMaxGrabLocation(),
+		GrabRadius,
+		Types,
+		false,
+		Ignores,
+		EDrawDebugTrace::None,
+		HitResult,
+		true);
+
+	HitActor = &*HitResult.Actor;
+	HitComponent = &*HitResult.Component;
+
+
+	return IsHit;
 }
+
+//bool UGrabber::TraceForPhysicsBodies_Implementation(AActor*& HitActor, UPrimitiveComponent*& HitComponent)
+//{
+//	return false;
+//}
+
