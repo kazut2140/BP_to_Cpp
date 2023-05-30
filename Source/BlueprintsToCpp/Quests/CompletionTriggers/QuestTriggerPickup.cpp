@@ -13,27 +13,7 @@ UQuestTriggerPickup::UQuestTriggerPickup()
 	// ...
 }
 
-
-//// Called when the game starts
-//void UQuestTriggerPickup::BeginPlay()
-//{
-//	Super::BeginPlay();
-//
-//	// ...
-//	
-//}
-//
-//
-//// Called every frame
-//void UQuestTriggerPickup::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-//{
-//	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-//
-//	// ...
-//}
-
-void UQuestTriggerPickup::Pickup()
+void UQuestTriggerPickup::Pickup1()
 {
-	FName QuestId;
-	GetQuestManager()->CompleteQuest(QuestId,false);
+	GetQuestManager()->CompleteQuest(QuestId, true);
 }

@@ -15,7 +15,7 @@ UGrabber::UGrabber()
 	PrimaryComponentTick.bCanEverTick = true;
 
 	// デバッグログの表示
-	UE_LOG(LogTemp, Warning, TEXT("Grabber Constructor"));
+	//UE_LOG(LogTemp, Warning, TEXT("Grabber Constructor"));
 }
 
 
@@ -46,7 +46,7 @@ void UGrabber::BeginPlay()
 	Super::BeginPlay();
 
 	// デバッグログの表示
-	UE_LOG(LogTemp, Warning, TEXT("Grabber BeginPlay"));
+	//UE_LOG(LogTemp, Warning, TEXT("Grabber BeginPlay"));
 	
 }
 
@@ -58,7 +58,7 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 	GetPhysicsComponent()->SetTargetLocationAndRotation(GetHoldLocation(), GetComponentRotation());
 
 	// デバッグログの表示
-	UE_LOG(LogTemp, Warning, TEXT("Grabber TickComponent"));
+	//UE_LOG(LogTemp, Warning, TEXT("Grabber TickComponent"));
 }
 
 FVector UGrabber::GetMaxGrabLocation() const
@@ -104,15 +104,15 @@ bool UGrabber::TraceForPhysicsBodies(AActor*& HitActor, UPrimitiveComponent*& Hi
 	return IsHit;
 }
 
-void UGrabber::NotifyQuestActor(AActor* Actor)
-{
-	UActorComponent* ActorNewComp = Actor->GetComponentByClass(UQuestTriggerPickup::StaticClass());
-	if (IsValid(ActorNewComp))
-	{
-		UQuestTriggerPickup* QuestTriggerPickup = Cast<UQuestTriggerPickup>(ActorNewComp);
-		QuestTriggerPickup->Pickup();
-	}
-}
+//void UGrabber::NotifyQuestActor(AActor* Actor)
+//{
+//	UActorComponent* ActorNewComp = Actor->GetComponentByClass(UQuestTriggerPickup::StaticClass());
+//	if (IsValid(ActorNewComp))
+//	{
+//		UQuestTriggerPickup* QuestTriggerPickup = Cast<UQuestTriggerPickup>(ActorNewComp);
+//		QuestTriggerPickup->Pickup();
+//	}
+//}
 
 //bool UGrabber::TraceForPhysicsBodies_Implementation(AActor*& HitActor, UPrimitiveComponent*& HitComponent)
 //{

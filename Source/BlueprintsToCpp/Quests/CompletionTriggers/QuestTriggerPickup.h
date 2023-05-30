@@ -18,18 +18,12 @@ public:
 	UQuestTriggerPickup();
 
 	UFUNCTION(BlueprintCallable)
-	void Pickup();
+	void Pickup1();
 
 protected:
 	UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
 	AQuestManager* GetQuestManager() const;
-//protected:
-//	// Called when the game starts
-//	virtual void BeginPlay() override;
-//
-//public:	
-//	// Called every frame
-//	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
-		
+protected:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FName QuestId;
 };
