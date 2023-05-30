@@ -13,7 +13,7 @@ UQuestTriggerPickup::UQuestTriggerPickup()
 	// ...
 }
 
-void UQuestTriggerPickup::Pickup1()
+void UQuestTriggerPickup::Pickup()
 {
 	GetQuestManager()->CompleteQuest(QuestId, true);
 }

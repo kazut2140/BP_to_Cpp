@@ -18,7 +18,7 @@ public:
 	UQuestTriggerPickup();
 
 	UFUNCTION(BlueprintCallable)
-	void Pickup1();
+	void Pickup();
 
 protected:
 	UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
