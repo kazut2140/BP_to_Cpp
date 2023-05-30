@@ -39,7 +39,10 @@ protected:
 	UPhysicsHandleComponent* GetPhysicsComponent() const;
 	
 	// ’è‹`‚ÍC++‚ÅŽÀ‘•‚ÍBP
-	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+	/*UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+	void NotifyQuestActor(AActor* Actor);*/
+
+	UFUNCTION(BlueprintCallable)
 	void NotifyQuestActor(AActor* Actor);
 
 	/*UFUNCTION(BlueprintCallable, BlueprintNativeEvent)

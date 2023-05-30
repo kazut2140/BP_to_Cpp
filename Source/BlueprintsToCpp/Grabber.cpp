@@ -4,6 +4,7 @@
 #include "Grabber.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Kismet/KismetSystemLibrary.h"
+#include "Quests/CompletionTriggers/QuestTriggerPickup.h"
 #include "GameFramework/Actor.h"
 
 // Sets default values for this component's properties
@@ -101,6 +102,16 @@ bool UGrabber::TraceForPhysicsBodies(AActor*& HitActor, UPrimitiveComponent*& Hi
 
 
 	return IsHit;
+}
+
+void UGrabber::NotifyQuestActor(AActor* Actor)
+{
+	UActorComponent* ActorNewComp = Actor->GetComponentByClass(UQuestTriggerPickup::StaticClass());
+	if (IsValid(ActorNewComp))
+	{
+		UQuestTriggerPickup* QuestTriggerPickup = Cast<UQuestTriggerPickup>(ActorNewComp);
+		QuestTriggerPickup->Pickup();
+	}
 }
 
 //bool UGrabber::TraceForPhysicsBodies_Implementation(AActor*& HitActor, UPrimitiveComponent*& HitComponent)
