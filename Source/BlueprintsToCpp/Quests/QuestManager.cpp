@@ -10,7 +10,7 @@ AQuestManager::AQuestManager()
 	PrimaryActorTick.bCanEverTick = true;
 
 	// デバッグログの表示
-	UE_LOG(LogTemp, Warning, TEXT("QuestManager Constructor"));
+	//UE_LOG(LogTemp, Warning, TEXT("QuestManager Constructor"));
 
 }
 
@@ -20,7 +20,7 @@ void AQuestManager::BeginPlay()
 	Super::BeginPlay();
 
 	// デバッグログの表示
-	UE_LOG(LogTemp, Warning, TEXT("QuestManager BeginPlay"));
+	//UE_LOG(LogTemp, Warning, TEXT("QuestManager BeginPlay"));
 	
 }
 
@@ -29,7 +29,7 @@ void AQuestManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	// デバッグログの表示
-	UE_LOG(LogTemp, Warning, TEXT("QuestManager Tick"));
+	//UE_LOG(LogTemp, Warning, TEXT("QuestManager Tick"));
 
 }
 

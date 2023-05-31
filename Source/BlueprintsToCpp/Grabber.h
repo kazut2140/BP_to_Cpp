@@ -14,7 +14,7 @@ class BLUEPRINTSTOCPP_API UGrabber : public USceneComponent
 {
 	GENERATED_BODY()
 
-public:	
+public:
 	// Sets default values for this component's properties
 	UGrabber();
 
@@ -42,10 +42,16 @@ protected:
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 	void NotifyQuestActor(AActor* Actor);
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	/*UFUNCTION(BlueprintCallable)
+	void NotifyQuestActor(AActor* Actor);*/
+
+	/*UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	bool TraceForPhysicsBodies(AActor*& HitActor, UPrimitiveComponent*& HitComponent);*/
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
 	bool TraceForPhysicsBodies(AActor*& HitActor, UPrimitiveComponent*& HitComponent);
 
-public:	
+public:
 	// Called every frame
 	// コンポーネントはこの名前
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
@@ -55,4 +61,6 @@ protected:
 	float MaxGrabDistance = 100;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float HoldDistance = 100;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	float GrabRadius = 50;
 };

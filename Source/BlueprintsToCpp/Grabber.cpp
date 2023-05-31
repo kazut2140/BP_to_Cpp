@@ -3,6 +3,8 @@
 
 #include "Grabber.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "Kismet/KismetSystemLibrary.h"
+#include "Quests/CompletionTriggers/QuestTriggerPickup.h"
 #include "GameFramework/Actor.h"
 
 // Sets default values for this component's properties
@@ -13,7 +15,7 @@ UGrabber::UGrabber()
 	PrimaryComponentTick.bCanEverTick = true;
 
 	// デバッグログの表示
-	UE_LOG(LogTemp, Warning, TEXT("Grabber Constructor"));
+	//UE_LOG(LogTemp, Warning, TEXT("Grabber Constructor"));
 }
 
 
@@ -44,19 +46,19 @@ void UGrabber::BeginPlay()
 	Super::BeginPlay();
 
 	// デバッグログの表示
-	UE_LOG(LogTemp, Warning, TEXT("Grabber BeginPlay"));
+	//UE_LOG(LogTemp, Warning, TEXT("Grabber BeginPlay"));
 	
 }
-
 
 // Called every frame
 void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	GetPhysicsComponent()->SetTargetLocationAndRotation(GetHoldLocation(), GetComponentRotation());
 
 	// デバッグログの表示
-	UE_LOG(LogTemp, Warning, TEXT("Grabber TickComponent"));
+	//UE_LOG(LogTemp, Warning, TEXT("Grabber TickComponent"));
 }
 
 FVector UGrabber::GetMaxGrabLocation() const
@@ -76,7 +78,44 @@ UPhysicsHandleComponent* UGrabber::GetPhysicsComponent() const
 	return GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
 }
 
-bool UGrabber::TraceForPhysicsBodies_Implementation(AActor*& HitActor, UPrimitiveComponent*& HitComponent)
+bool UGrabber::TraceForPhysicsBodies(AActor*& HitActor, UPrimitiveComponent*& HitComponent)
 {
-	return false;
+	TArray<TEnumAsByte<EObjectTypeQuery>> Types = { EObjectTypeQuery::ObjectTypeQuery4 };
+	TArray<AActor*> Ignores;
+
+	FHitResult HitResult;
+
+	bool IsHit =  UKismetSystemLibrary::SphereTraceSingleForObjects(
+		GetOwner(),
+		GetComponentLocation(),
+		GetMaxGrabLocation(),
+		GrabRadius,
+		Types,
+		false,
+		Ignores,
+		EDrawDebugTrace::None,
+		HitResult,
+		true);
+
+	HitActor = &*HitResult.Actor;
+	HitComponent = &*HitResult.Component;
+
+
+	return IsHit;
 }
+
+//void UGrabber::NotifyQuestActor(AActor* Actor)
+//{
+//	UActorComponent* ActorNewComp = Actor->GetComponentByClass(UQuestTriggerPickup::StaticClass());
+//	if (IsValid(ActorNewComp))
+//	{
+//		UQuestTriggerPickup* QuestTriggerPickup = Cast<UQuestTriggerPickup>(ActorNewComp);
+//		QuestTriggerPickup->Pickup();
+//	}
+//}
+
+//bool UGrabber::TraceForPhysicsBodies_Implementation(AActor*& HitActor, UPrimitiveComponent*& HitComponent)
+//{
+//	return false;
+//}
+
