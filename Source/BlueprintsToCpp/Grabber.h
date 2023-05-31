@@ -38,12 +38,12 @@ protected:
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	UPhysicsHandleComponent* GetPhysicsComponent() const;
 	
-	// ’è‹`‚ÍC++‚ÅŽÀ‘•‚ÍBP
-	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-	void NotifyQuestActor(AActor* Actor);
+	//// ’è‹`‚ÍC++‚ÅŽÀ‘•‚ÍBP
+	//UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+	//void NotifyQuestActor(AActor* Actor);
 
-	/*UFUNCTION(BlueprintCallable)
-	void NotifyQuestActor(AActor* Actor);*/
+	UFUNCTION(BlueprintCallable)
+	void NotifyQuestActor(AActor* Actor);
 
 	/*UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	bool TraceForPhysicsBodies(AActor*& HitActor, UPrimitiveComponent*& HitComponent);*/

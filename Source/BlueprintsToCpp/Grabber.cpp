@@ -104,18 +104,14 @@ bool UGrabber::TraceForPhysicsBodies(AActor*& HitActor, UPrimitiveComponent*& Hi
 	return IsHit;
 }
 
-//void UGrabber::NotifyQuestActor(AActor* Actor)
-//{
-//	UActorComponent* ActorNewComp = Actor->GetComponentByClass(UQuestTriggerPickup::StaticClass());
-//	if (IsValid(ActorNewComp))
-//	{
-//		UQuestTriggerPickup* QuestTriggerPickup = Cast<UQuestTriggerPickup>(ActorNewComp);
-//		QuestTriggerPickup->Pickup();
-//	}
-//}
-
-//bool UGrabber::TraceForPhysicsBodies_Implementation(AActor*& HitActor, UPrimitiveComponent*& HitComponent)
-//{
-//	return false;
-//}
+void UGrabber::NotifyQuestActor(AActor* Actor)
+{
+	UActorComponent* ActorNewComp = Actor->GetComponentByClass(UQuestTriggerPickup::StaticClass());
+	if (IsValid(ActorNewComp))
+	{
+		UQuestTriggerPickup* QuestTriggerPickup = Cast<UQuestTriggerPickup>(ActorNewComp);
+		QuestTriggerPickup->Pickup();
+		UE_LOG(LogTemp, Warning, TEXT("NotifyQuestActor"));
+	}
+}
 
