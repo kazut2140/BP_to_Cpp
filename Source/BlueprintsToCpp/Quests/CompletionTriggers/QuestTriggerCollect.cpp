@@ -13,6 +13,12 @@ AQuestTriggerCollect::AQuestTriggerCollect()
 	
 	SetRootComponent(Root);
 	Sphere->SetupAttachment(Root);
+	//Sphere->OnComponentBeginOverlap.AddDynamic(this, &AQuestTriggerCollect::OnOverlapBegin);
+}
+
+void AQuestTriggerCollect::BeginPlay()
+{
+	Super::BeginPlay();
 	Sphere->OnComponentBeginOverlap.AddDynamic(this, &AQuestTriggerCollect::OnOverlapBegin);
 }
 

@@ -16,6 +16,11 @@ class BLUEPRINTSTOCPP_API AQuestTriggerCollect : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AQuestTriggerCollect();
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
 protected:
 	UFUNCTION()
 	void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp,

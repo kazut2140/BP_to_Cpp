@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "Quests/QuestManager.h"
 #include "MainGameMode.generated.h"
 
 /**
@@ -13,5 +14,8 @@ UCLASS()
 class BLUEPRINTSTOCPP_API AMainGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
-	
+
+public:
+	UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
+	AQuestManager* GetQuestManager();
 };
