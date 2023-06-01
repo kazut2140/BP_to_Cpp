@@ -28,8 +28,8 @@ protected:
 	/*UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
 	bool IsCorrectItem(AActor* Item);*/
 
-	/*UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
-	bool HasNotSeenItem(AActor* ItemToFind);*/
+	UFUNCTION(BlueprintPure)
+	bool HasNotSeenItem(AActor* ItemToFind);
 
 	UFUNCTION(BlueprintCallable)
 	void MarkItemSeen(AActor* NewItem);
