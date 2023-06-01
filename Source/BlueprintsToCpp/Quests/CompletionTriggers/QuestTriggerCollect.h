@@ -17,13 +17,13 @@ public:
 	// Sets default values for this actor's properties
 	AQuestTriggerCollect();
 protected:
-	/*UFUNCTION()
+	UFUNCTION()
 	void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp,
 		class AActor* OtherActor,
 		class UPrimitiveComponent* OtherComp,
 		int32 OtherBodyIndex,
 		bool bFromSweep,
-		const FHitResult& SweepResult);*/
+		const FHitResult& SweepResult);
 
 	UFUNCTION(BlueprintPure)
 	bool IsCorrectItem(AActor* Item);
