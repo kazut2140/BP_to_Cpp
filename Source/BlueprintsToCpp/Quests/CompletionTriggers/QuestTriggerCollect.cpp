@@ -32,7 +32,6 @@ void AQuestTriggerCollect::OnOverlapBegin
 	const FHitResult& SweepResult
 	)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Over"));
 	if (IsCorrectItem(OtherActor) && HasNotSeenItem(OtherActor))
 	{
 		MarkItemSeen(OtherActor);
