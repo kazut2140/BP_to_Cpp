@@ -26,13 +26,13 @@ protected:
 		const FHitResult& SweepResult);*/
 
 	/*UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
-	bool IsCorrectItem(AActor* Item);
+	bool IsCorrectItem(AActor* Item);*/
 
-	UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
-	bool HasNotSeenItem(AActor* ItemToFind);
+	/*UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
+	bool HasNotSeenItem(AActor* ItemToFind);*/
 
-	UFUNCTION(BlueprintImplementableEvent)
-	void MarkItemSeen(AActor* NewItem);*/
+	UFUNCTION(BlueprintCallable)
+	void MarkItemSeen(AActor* NewItem);
 
 	UFUNCTION(BlueprintCallable)
 	void NotifyQuestComplete();
@@ -49,4 +49,6 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FName QuestId;
+	UPROPERTY(BlueprintReadOnly)
+	TSet<AActor*> SeenItems;
 };

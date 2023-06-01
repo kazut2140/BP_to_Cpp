@@ -16,6 +16,11 @@ AQuestTriggerCollect::AQuestTriggerCollect()
 	/*Sphere->OnComponentBeginOverlap.AddDynamic(this, &AQuestTriggerCollect::OnOverlapBegin);*/
 }
 
+void AQuestTriggerCollect::MarkItemSeen(AActor* NewItem)
+{
+	SeenItems.Add(NewItem);
+}
+
 void AQuestTriggerCollect::NotifyQuestComplete()
 {
 	GetQuestManager()->CompleteQuest(QuestId, false);
