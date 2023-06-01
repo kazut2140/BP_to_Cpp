@@ -15,3 +15,28 @@ AQuestTriggerVolume::AQuestTriggerVolume()
 	Box->SetupAttachment(Root);
 }
 
+void AQuestTriggerVolume::BeginPlay()
+{
+	Super::BeginPlay();
+	Box->OnComponentBeginOverlap.AddDynamic(this, &AQuestTriggerVolume::OnOverlapBegin);
+}
+
+void AQuestTriggerVolume::OnOverlapBegin
+(
+	UPrimitiveComponent* OverlappedComp,
+	AActor* OtherActor,
+	UPrimitiveComponent* OtherComp,
+	int32 OtherBodyIndex,
+	bool bFromSweep,
+	const FHitResult& SweepResult
+)
+{
+	Cast<APawn>(OtherActor);
+	
+	if (bDoOnce)
+	{
+		GetQuestManager()->CompleteQuest(QuestId, CompleteWholeQuest);
+		bDoOnce = false;
+	}
+	
+}
