@@ -13,5 +13,24 @@ AQuestTriggerCollect::AQuestTriggerCollect()
 	
 	SetRootComponent(Root);
 	Sphere->SetupAttachment(Root);
+	/*Sphere->OnComponentBeginOverlap.AddDynamic(this, &AQuestTriggerCollect::OnOverlapBegin);*/
 }
 
+void AQuestTriggerCollect::NotifyQuestComplete()
+{
+	GetQuestManager()->CompleteQuest(QuestId, false);
+}
+
+//void AQuestTriggerCollect::OnOverlapBegin
+//	(
+//	UPrimitiveComponent* OverlappedComp,
+//	AActor* OtherActor,
+//	UPrimitiveComponent* OtherComp,
+//	int32 OtherBodyIndex,
+//	bool bFromSweep,
+//	const FHitResult& SweepResult
+//	)
+//{
+//
+//
+//}
