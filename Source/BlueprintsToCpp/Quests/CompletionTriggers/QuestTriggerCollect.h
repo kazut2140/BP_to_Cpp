@@ -25,8 +25,8 @@ protected:
 		bool bFromSweep,
 		const FHitResult& SweepResult);*/
 
-	/*UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
-	bool IsCorrectItem(AActor* Item);*/
+	UFUNCTION(BlueprintPure)
+	bool IsCorrectItem(AActor* Item);
 
 	UFUNCTION(BlueprintPure)
 	bool HasNotSeenItem(AActor* ItemToFind);
@@ -51,4 +51,6 @@ protected:
 	FName QuestId;
 	UPROPERTY(BlueprintReadOnly)
 	TSet<AActor*> SeenItems;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FName ItemTag;
 };

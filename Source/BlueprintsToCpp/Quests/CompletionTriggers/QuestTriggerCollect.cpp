@@ -16,6 +16,11 @@ AQuestTriggerCollect::AQuestTriggerCollect()
 	/*Sphere->OnComponentBeginOverlap.AddDynamic(this, &AQuestTriggerCollect::OnOverlapBegin);*/
 }
 
+bool AQuestTriggerCollect::IsCorrectItem(AActor* Item)
+{
+	return Item->ActorHasTag(ItemTag);
+}
+
 bool AQuestTriggerCollect::HasNotSeenItem(AActor* ItemToFind)
 {
 	return !SeenItems.Contains(ItemToFind);
