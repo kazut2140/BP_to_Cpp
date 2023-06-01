@@ -13,5 +13,43 @@ AQuestTriggerCollect::AQuestTriggerCollect()
 	
 	SetRootComponent(Root);
 	Sphere->SetupAttachment(Root);
+	Sphere->OnComponentBeginOverlap.AddDynamic(this, &AQuestTriggerCollect::OnOverlapBegin);
 }
 
+void AQuestTriggerCollect::OnOverlapBegin
+	(
+	UPrimitiveComponent* OverlappedComp,
+	AActor* OtherActor,
+	UPrimitiveComponent* OtherComp,
+	int32 OtherBodyIndex,
+	bool bFromSweep,
+	const FHitResult& SweepResult
+	)
+{
+	UE_LOG(LogTemp, Warning, TEXT("Over"));
+	if (IsCorrectItem(OtherActor) && HasNotSeenItem(OtherActor))
+	{
+		MarkItemSeen(OtherActor);
+		NotifyQuestComplete();
+	}
+}
+
+bool AQuestTriggerCollect::IsCorrectItem(AActor* Item)
+{
+	return Item->ActorHasTag(ItemTag);
+}
+
+bool AQuestTriggerCollect::HasNotSeenItem(AActor* ItemToFind)
+{
+	return !SeenItems.Contains(ItemToFind);
+}
+
+void AQuestTriggerCollect::MarkItemSeen(AActor* NewItem)
+{
+	SeenItems.Add(NewItem);
+}
+
+void AQuestTriggerCollect::NotifyQuestComplete()
+{
+	GetQuestManager()->CompleteQuest(QuestId, false);
+}
