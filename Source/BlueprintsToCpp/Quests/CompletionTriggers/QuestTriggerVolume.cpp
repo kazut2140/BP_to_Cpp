@@ -7,21 +7,11 @@
 AQuestTriggerVolume::AQuestTriggerVolume()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
+	Root = CreateDefaultSubobject<USceneComponent>(TEXT("SceneRoot"));
+	Box = CreateDefaultSubobject<UBoxComponent>(TEXT("Box"));
 
-}
-
-// Called when the game starts or when spawned
-void AQuestTriggerVolume::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
-
-// Called every frame
-void AQuestTriggerVolume::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
+	SetRootComponent(Root);
+	Box->SetupAttachment(Root);
 }
 
