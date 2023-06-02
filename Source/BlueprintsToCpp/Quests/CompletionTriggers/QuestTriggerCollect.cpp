@@ -58,5 +58,4 @@ void AQuestTriggerCollect::MarkItemSeen(AActor* NewItem)
 void AQuestTriggerCollect::NotifyQuestComplete()
 {
 	UQuestLibrary::GetQuestManager(GetWorld())->CompleteQuest(QuestId, false);
-	//GetQuestManager()->CompleteQuest(QuestId, false);
 }

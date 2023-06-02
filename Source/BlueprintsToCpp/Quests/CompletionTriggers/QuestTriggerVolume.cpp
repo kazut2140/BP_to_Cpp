@@ -2,6 +2,7 @@
 
 
 #include "QuestTriggerVolume.h"
+#include "Quests/QuestLibrary.h"
 
 // Sets default values
 AQuestTriggerVolume::AQuestTriggerVolume()
@@ -35,7 +36,7 @@ void AQuestTriggerVolume::OnOverlapBegin
 	
 	if (bDoOnce)
 	{
-		GetQuestManager()->CompleteQuest(QuestId, CompleteWholeQuest);
+		UQuestLibrary::GetQuestManager(GetWorld())->CompleteQuest(QuestId, CompleteWholeQuest);
 		bDoOnce = false;
 	}
 	

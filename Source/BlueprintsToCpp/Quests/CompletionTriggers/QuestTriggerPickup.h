@@ -21,8 +21,6 @@ public:
 	void Pickup();
 
 protected:
-	UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
-	AQuestManager* GetQuestManager() const;
 
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
