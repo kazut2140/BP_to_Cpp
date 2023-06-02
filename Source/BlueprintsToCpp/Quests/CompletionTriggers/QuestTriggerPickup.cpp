@@ -2,6 +2,7 @@
 
 
 #include "QuestTriggerPickup.h"
+#include "Quests/QuestLibrary.h"
 
 // Sets default values for this component's properties
 UQuestTriggerPickup::UQuestTriggerPickup()
@@ -15,5 +16,5 @@ UQuestTriggerPickup::UQuestTriggerPickup()
 
 void UQuestTriggerPickup::Pickup()
 {
-	GetQuestManager()->CompleteQuest(QuestId, true);
+	UQuestLibrary::GetQuestManager(GetWorld())->CompleteQuest(QuestId, true);
 }

@@ -29,9 +29,6 @@ private:
 	void QuestUpdate(int32 Index);
 
 protected:
-	UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
-	AQuestManager* GetQuestManager() const;
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	USceneComponent* Root;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)

@@ -2,6 +2,7 @@
 
 
 #include "QuestMarker.h"
+#include "Quests/QuestLibrary.h"
 
 // Sets default values
 AQuestMarker::AQuestMarker()
@@ -19,15 +20,15 @@ AQuestMarker::AQuestMarker()
 void AQuestMarker::BeginPlay()
 {
 	// ƒoƒCƒ“ƒh
-	GetQuestManager()->CompletedQuest.AddDynamic(this, &AQuestMarker::QuestUpdate);
+	UQuestLibrary::GetQuestManager(GetWorld())->CompletedQuest.AddDynamic(this, &AQuestMarker::QuestUpdate);
 	RefreshVisibility();
 }
 
 void AQuestMarker::RefreshVisibility()
 {
-	FQuestInfo Quest = GetQuestManager()->GetQuest(QuestName);
+	FQuestInfo Quest = UQuestLibrary::GetQuestManager(GetWorld())->GetQuest(QuestName);
 	bool EqualProgress = (Quest.Progress == ShowAtProgress);
-	bool Visibility = GetQuestManager()->IsActiveQuest(Quest.QuestId) && EqualProgress;
+	bool Visibility = UQuestLibrary::GetQuestManager(GetWorld())->IsActiveQuest(Quest.QuestId) && EqualProgress;
 	ParticleSystem->SetVisibility(Visibility);
 }
 

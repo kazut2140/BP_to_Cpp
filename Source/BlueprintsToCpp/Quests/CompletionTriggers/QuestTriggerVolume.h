@@ -30,9 +30,6 @@ protected:
 		bool bFromSweep,
 		const FHitResult& SweepResult);
 
-	UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
-	AQuestManager* GetQuestManager() const;
-
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	USceneComponent* Root;
