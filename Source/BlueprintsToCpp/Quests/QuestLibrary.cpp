@@ -3,10 +3,5 @@
 
 #include "QuestLibrary.h"
 #include "Kismet/GameplayStatics.h"
+#include "Core/MainGameMode.h"
 #include "GameFramework/GameMode.h"
-
-AQuestManager* UQuestLibrary::GetQuestManager()
-{
-	AGameMode* GameMode = Cast<AGameMode>(UGameplayStatics::GetGameMode(nullptr));
-	return nullptr;
-}

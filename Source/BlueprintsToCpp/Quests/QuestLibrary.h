@@ -16,7 +16,5 @@ class BLUEPRINTSTOCPP_API UQuestLibrary : public UBlueprintFunctionLibrary
 	GENERATED_BODY()
 
 public:
-
-	AQuestManager* GetQuestManager();
 	
 };

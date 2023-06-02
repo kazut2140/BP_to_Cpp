@@ -16,6 +16,10 @@ class BLUEPRINTSTOCPP_API AMainGameMode : public AGameModeBase
 	GENERATED_BODY()
 
 public:
-	UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
+	UFUNCTION(BlueprintPure)
 	AQuestManager* GetQuestManager();
+
+protected:
+	UPROPERTY(BlueprintReadOnly)
+	AQuestManager* QuestManager;
 };

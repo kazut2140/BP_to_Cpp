@@ -2,6 +2,7 @@
 
 
 #include "QuestTriggerCollect.h"
+#include "Quests/QuestLibrary.h"
 
 // Sets default values
 AQuestTriggerCollect::AQuestTriggerCollect()
