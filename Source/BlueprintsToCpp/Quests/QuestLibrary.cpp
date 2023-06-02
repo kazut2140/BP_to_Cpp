@@ -3,10 +3,17 @@
 
 #include "QuestLibrary.h"
 #include "Kismet/GameplayStatics.h"
+#include "Core/MainGameMode.h"
+#include "Engine/World.h"
 #include "GameFramework/GameMode.h"
 
-AQuestManager* UQuestLibrary::GetQuestManager()
+AQuestManager* UQuestLibrary::GetQuestManager(const UObject* WorldContextObject)
 {
-	AGameMode* GameMode = Cast<AGameMode>(UGameplayStatics::GetGameMode(nullptr));
-	return nullptr;
+	AMainGameMode* MainGameMode = Cast<AMainGameMode>(UGameplayStatics::GetGameMode(WorldContextObject));
+	if (IsValid(MainGameMode))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Library"));
+	}
+	
+	return MainGameMode->GetQuestManager();
 }

@@ -18,4 +18,12 @@ class BLUEPRINTSTOCPP_API AMainGameMode : public AGameModeBase
 public:
 	UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
 	AQuestManager* GetQuestManager();
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+protected:
+	/*UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	AQuestManager* QuestManager;*/
 };
