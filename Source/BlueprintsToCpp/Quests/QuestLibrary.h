@@ -16,5 +16,6 @@ class BLUEPRINTSTOCPP_API UQuestLibrary : public UBlueprintFunctionLibrary
 	GENERATED_BODY()
 
 public:
-	
+	UFUNCTION(BlueprintPure)
+	static AQuestManager* GetQuestManager(const UObject* WorldContextObject);
 };
