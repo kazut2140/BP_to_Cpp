@@ -25,6 +25,9 @@ public:
 	UFUNCTION(BlueprintPure)
 	FQuestInfo GetQuest(FName Name) const;
 
+	//UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
+
+
 	UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
 	bool IsActiveQuest(FName Name) const;
 
