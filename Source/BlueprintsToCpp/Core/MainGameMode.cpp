@@ -3,32 +3,37 @@
 
 #include "MainGameMode.h"
 #include "Engine/World.h"
+#include "Kismet/GameplayStatics.h"
+#include "UserWidget.h"
 
 
-void AMainGameMode::BeginPlay()
-{
-	Super::BeginPlay();
-	/*FString Path = "/Game/UI/WBP_MainDisplay.WBP_MainDisplay_C";
-	TSubclassOf<class UUserWidget> WidgetClass = TSoftClassPtr<UUserWidget>(FSoftObjectPath(*Path)).LoadSynchronous();*/
-}
-
-//AQuestManager* AMainGameMode::GetQuestManager()
+//void AMainGameMode::BeginPlay()
 //{
-//	if (IsValid(QuestManager))
-//	{
-//		return QuestManager;
-//	}
+//	Super::BeginPlay();
+//	FString Path = "/Game/UI/WBP_MainDisplay.WBP_MainDisplay_C";
+//	APlayerController* aPlayerController = UGameplayStatics::GetPlayerController(this, 0);
 //
-//	FString aAssetPath = "/Game/Quests/BP_QuestManager.BP_QuestManager_C";
-//	TSubclassOf<AQuestManager> aActorClass = TSoftClassPtr<AQuestManager>(FSoftObjectPath(*aAssetPath)).LoadSynchronous();
-//	if (aActorClass != nullptr) {
-//
-//		// スポーン
-//		AQuestManager* aQuestManager = GetWorld()->SpawnActor<AQuestManager>(aActorClass);
-//
-//		// スポーンしたアクターへ何か処理をしたい場合
-//		QuestManager = aQuestManager;
-//	}
-//
-//	return QuestManager;
+//	TSubclassOf<class UUserWidget> WidgetClass = TSoftClassPtr<UUserWidget>(FSoftObjectPath(*Path)).LoadSynchronous();
+//	UUserWidget* UserWidget = CreateWidget<UUserWidget>(GetWorld(), WidgetClass);
 //}
+
+AQuestManager* AMainGameMode::GetQuestManager()
+{
+	if (IsValid(QuestManager))
+	{
+		return QuestManager;
+	}
+
+	FString AssetPath = "/Game/Quests/BP_QuestManager.BP_QuestManager_C";
+	TSubclassOf<AQuestManager> QuestManagerClass = TSoftClassPtr<AQuestManager>(FSoftObjectPath(*AssetPath)).LoadSynchronous();
+	if (QuestManagerClass != nullptr) {
+
+		// スポーン
+		AQuestManager* NewQuestManager = GetWorld()->SpawnActor<AQuestManager>(QuestManagerClass);
+
+		// スポーンしたアクターへ何か処理をしたい場合
+		QuestManager = NewQuestManager;
+	}
+
+	return QuestManager;
+}
