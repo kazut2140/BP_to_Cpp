@@ -25,7 +25,11 @@ public:
 	UFUNCTION(BlueprintPure)
 	FQuestInfo GetQuest(FName Name) const;
 
-	//UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
+	/*UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
+	TArray<FQuestInfo> GetQuests;
+
+	UFUNCTION(BlueprintPure, BlueprintImplementableEvent)
+	bool IsQuestComplete(FQuestInfo )*/
 
 
 	UFUNCTION(BlueprintPure, BlueprintImplementableEvent)

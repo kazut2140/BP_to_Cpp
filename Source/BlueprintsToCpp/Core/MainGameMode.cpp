@@ -8,8 +8,8 @@
 void AMainGameMode::BeginPlay()
 {
 	Super::BeginPlay();
-	FString Path = "/Game/UI/WBP_MainDisplay.WBP_MainDisplay_C";
-	TSubclassOf<class UUserWidget> WidgetClass = TSoftClassPtr<UUserWidget>(FSoftObjectPath(*Path)).LoadSynchronous();
+	/*FString Path = "/Game/UI/WBP_MainDisplay.WBP_MainDisplay_C";
+	TSubclassOf<class UUserWidget> WidgetClass = TSoftClassPtr<UUserWidget>(FSoftObjectPath(*Path)).LoadSynchronous();*/
 }
 
 //AQuestManager* AMainGameMode::GetQuestManager()
